@@ -3,9 +3,9 @@
 let gridSelector = document.querySelector(".gridSelector");
 
 const gridContainer = document.querySelector(".gridContainer");
-
-gridSelector.addEventListener('click', function()
- {makeGrids(prompt("Grid side length please!", "4"))});
+//this next line is remnants from the button. I replaced it with a slider
+//gridSelector.addEventListener('click', function()
+ //{makeGrids(prompt("Grid side length please!", "4"))});
 
 //This function as of now takes the number input
 //and puts back out that number of divs
@@ -29,7 +29,17 @@ for (let i = 1; i <= x; i++) {
 
     
    function changeBox() {
-gridBox.style.backgroundColor="black"
+
+    if (rainbowToggle === true) {
+        gridBox.style.backgroundColor= `rgb(${(Math.floor((Math.random()*255) ))},
+        ${Math.floor((Math.random()*255) + 1)}, 
+         ${Math.floor((Math.random()*255) + 1)})`
+   
+}
+else {
+gridBox.style.backgroundColor= desiredColor
+}
+
 }
 
 }
@@ -72,5 +82,27 @@ function destroyGrid(){
     }
 }
 
+desiredColor = "black";
+
+const colorSelect = document.querySelector(".colorSelect");
+colorSelect.addEventListener('click', selectColor);
+
+function selectColor(){
+   desiredColor = prompt("What color do you want?", "black")
+};
+//this takes care of the rainbow settings
+const rainbow = document.querySelector(".rainbow");
+rainbow.addEventListener('click', makeRainbow)
+
+rainbowToggle = false;
+//rainbow function
+
+function makeRainbow() {
+    if (rainbowToggle === true) {
+        rainbowToggle = false
+    }
+    else if (rainbowToggle === false)
+    {rainbowToggle = true}
 
 
+}
