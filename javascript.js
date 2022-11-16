@@ -63,7 +63,14 @@ const create = document.querySelector(".createGridButton");
 create.addEventListener('click', function() {
     makeGrids(sliderValue.innerHTML)
 })
+const clear = document.querySelector(".clear")
+clear.addEventListener('click', destroyGrid)
 
+function destroyGrid(){
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild)
+    }
+}
 
 
 
