@@ -4,17 +4,18 @@ let gridSelector = document.querySelector(".gridSelector");
 
 const gridContainer = document.querySelector(".gridContainer");
 
-gridSelector.addEventListener('click', makeGrids);
+gridSelector.addEventListener('click', function()
+ {makeGrids(prompt("Grid side length please!", "4"))});
 
 //This function as of now takes the number input
 //and puts back out that number of divs
-function makeGrids() {
+function makeGrids(gridNumber) {
 
     //add a function that will remove all
     //of the child nodes before making a new grid
 
 
-let gridNumber = prompt("Grid side length please!", "4")
+
 let x = ((Number(gridNumber))**2);
 for (let i = 1; i <= x; i++) {
     const gridBox = document.createElement("div");
@@ -47,10 +48,21 @@ gridContainer.style.gridTemplateColumns = gridSideCount;
 
 
 }
-//This changes all the grid boxes when hovered over
+//this is the slider programming
+gridRange = document.getElementById("gridRange");
+sliderValue = document.getElementById("slideValue");
+sliderValue.innerHTML = gridRange.value
+gridRange.oninput = function() {
+    sliderValue.innerHTML = this.value
+}
 
 
 
+//the code for the create button
+const create = document.querySelector(".createGridButton");
+create.addEventListener('click', function() {
+    makeGrids(sliderValue.innerHTML)
+})
 
 
 
