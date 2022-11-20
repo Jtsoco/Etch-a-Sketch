@@ -30,10 +30,11 @@ for (let i = 1; i <= x; i++) {
     
    function changeBox() {
 
-    if (rainbowToggle === true) {
+    if ((rainbowToggle === true) &&  (!gridBox.classList.contains('noChange'))){
         gridBox.style.backgroundColor= `rgb(${(Math.floor((Math.random()*255) ))},
         ${Math.floor((Math.random()*255) + 1)}, 
-         ${Math.floor((Math.random()*255) + 1)})`
+         ${Math.floor((Math.random()*255) + 1)})`;
+         gridBox.classList.add("noChange")
    
 }
 else {
