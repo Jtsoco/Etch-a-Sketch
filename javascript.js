@@ -14,7 +14,7 @@ function makeGrids(gridNumber) {
     //add a function that will remove all
     //of the child nodes before making a new grid
 
-
+    
 
 let x = ((Number(gridNumber))**2);
 for (let i = 1; i <= x; i++) {
@@ -29,14 +29,20 @@ for (let i = 1; i <= x; i++) {
 
     
    function changeBox() {
-
+    
+rainbowColor = `rgb(${(Math.floor((Math.random()*255) ))},
+${Math.floor((Math.random()*255) + 1)}, 
+ ${Math.floor((Math.random()*255) + 1)})`
     if ((rainbowToggle === true) &&  (!gridBox.classList.contains('noChange'))){
-        gridBox.style.backgroundColor= `rgb(${(Math.floor((Math.random()*255) ))},
-        ${Math.floor((Math.random()*255) + 1)}, 
-         ${Math.floor((Math.random()*255) + 1)})`;
+        gridBox.style.backgroundColor= rainbowColor;
          gridBox.classList.add("noChange")
    
 }
+//if I were to darken the squares on each pass, I would
+//add classes for each pass and make the color slightly darker with each
+//first i'd clean up the rainbowColor so that each value of rgb is a different variable
+//then I would put in a final value to change opacity(?)
+//and with each pass add a class corresponding to a change in opacity
 else {
 gridBox.style.backgroundColor= desiredColor
 }
